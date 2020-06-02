@@ -1,7 +1,7 @@
-import { promptPassword } from "./mod.ts";
+import { promptSecret } from "./mod.ts";
 
 try {
-	const password = await promptPassword("What's your password? ");
+	const password = await promptSecret("What's your password? ");
 	console.log("You said: ", password);
 } catch (err) {
 	console.log(err);

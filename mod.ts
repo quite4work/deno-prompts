@@ -1,4 +1,4 @@
-export async function promptPassword(message : string) : Promise<string> {
+export async function promptSecret(message : string) : Promise<string> {
 	Deno.stdout.write(new TextEncoder().encode(message));
 	Deno.setRaw(0, true);
 
