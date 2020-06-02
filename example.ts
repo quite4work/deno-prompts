@@ -1,8 +1,10 @@
 import { promptSecret } from "./mod.ts";
 
-try {
+do {
 	const password = await promptSecret("What's your password? ");
+	if (!password) {
+		break;
+	}
+
 	console.log("You said: ", password);
-} catch (err) {
-	console.log(err);
-}
+} while (true);

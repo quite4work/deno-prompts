@@ -1,4 +1,4 @@
-export async function promptSecret(message : string) : Promise<string> {
+export async function promptSecret(message : string) : Promise<string | null> {
 	Deno.stdout.write(new TextEncoder().encode(message));
 	Deno.setRaw(0, true);
 
@@ -16,7 +16,8 @@ export async function promptSecret(message : string) : Promise<string> {
 			switch (char) {
 				case "\u0003":
 				case "\u0004":
-					throw new Error("abort");
+					Deno.setRaw(Deno.stdin.rid, false);
+					return null;
 
 				case "\r":
 				case "\n":
@@ -33,4 +34,6 @@ export async function promptSecret(message : string) : Promise<string> {
 			}
 		}
 	}
+
+	return null;
 }
