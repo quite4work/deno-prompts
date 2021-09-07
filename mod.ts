@@ -1,5 +1,5 @@
 export async function promptSecret(message : string) : Promise<string | null> {
-	Deno.stdout.write(new TextEncoder().encode(message));
+	Deno.stdout.write(new TextEncoder().encode(message + "\n"));
 	Deno.setRaw(0, true);
 
 	let input = "";
