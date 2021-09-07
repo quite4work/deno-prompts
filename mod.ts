@@ -1,5 +1,5 @@
 export async function promptSecret(message : string) : Promise<string | null> {
-	Deno.stdout.write(new TextEncoder().encode(message + "\n"));
+	Deno.stdout.write(new TextEncoder().encode(message);
 	Deno.setRaw(0, true);
 
 	let input = "";
@@ -17,11 +17,13 @@ export async function promptSecret(message : string) : Promise<string | null> {
 				case "\u0003":
 				case "\u0004":
 					Deno.setRaw(Deno.stdin.rid, false);
+				        console.log();
 					return null;
 
 				case "\r":
 				case "\n":
 					Deno.setRaw(Deno.stdin.rid, false);
+				        console.log();
 					return input;
 
 				case "\u0008":
@@ -35,5 +37,6 @@ export async function promptSecret(message : string) : Promise<string | null> {
 		}
 	}
 
+	console.log();
 	return null;
 }
